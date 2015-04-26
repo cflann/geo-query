@@ -1,0 +1,17 @@
+{
+  "name": "SnapcacheGeoServer",
+  "version": "1.0.0",
+  "description": "Snapcache GeoQuerying Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Conor Flannigan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3",
+    "geo-proximity": "^2.1.0",
+    "redis": "^0.12.1",
+    "socket.io": "^1.3.5"
+  }
+}
