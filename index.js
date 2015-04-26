@@ -12,7 +12,7 @@ var io = require('socket.io')(http);
 var proximity = require('geo-proximity').initialize(client);
 
 // Handler includes logic for user/cache lifecycle events
-var handler = require('lib/handler');
+var handler = require('./lib/handler');
 
 // Set up a basic webpage to serve for testing purposes
 app.get('/', function(req, res) {
@@ -24,20 +24,16 @@ io.on('connection', function(socket) {
   console.log('A user connected');
 
   // Handle radial query registration
-  socket.on('add_query', function(id, coords, radius) {
-  });
+  socket.on('add_query', handler.addQuery);
 
   // Handle radial query removal
-  socket.on('remove_query', function(id) {
-  });
+  socket.on('remove_query', handler.removeQuery);
 
-  // Handle key registration
-  socket.on('add_key', function(id, coords) {
-  });
+  // Handle key registration and updating
+  socket.on('set_key', handler.setKey);
 
   // Handle key removal
-  socket.on('remove_key', function(id) {
-  });
+  socket.on('remove_key', handler.removeKey);
 
   // Handle client disconnect
   socket.on('disconnect', function() {
