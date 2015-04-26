@@ -16,7 +16,7 @@
     <script>
      var socket = io();
      navigator.geolocation.watchPosition(function(pos) {
-       socket.emit('location', pos.coords);
+       socket.emit('set_key', { id: 'Conor', coords: pos.coords });
      });
     </script>
   </head>
