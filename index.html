@@ -16,11 +16,25 @@
     <script>
      var socket = io();
      navigator.geolocation.watchPosition(function(pos) {
+       console.log(pos.coords);
        socket.emit('set_key', { id: 'Conor', coords: pos.coords });
      });
      setTimeout(function() {
+       socket.emit('add_query', {
+         id: 'Cache',
+         coords: {
+           latitude: 37.86535,
+           longitude: -122.265359
+         },
+         radius: 1000
+       });
+     }, 6000);
+     setTimeout(function() {
        socket.emit('remove_key', { id: 'Conor' });
-     }, 5000);
+     }, 12000);
+     setTimeout(function() {
+       socket.emit('remove_query', { id: 'Cache' });
+     }, 16000);
     </script>
   </head>
   <body>
