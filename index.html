@@ -19,6 +19,12 @@
        console.log(pos.coords);
        socket.emit('set_key', { id: 'Conor', coords: pos.coords });
      });
+     socket.on('key_entered', function(key) {
+       console.log('Entered key:', key);
+     });
+     socket.on('key_exited', function(key) {
+       console.log('Exited key:', key);
+     });
      setTimeout(function() {
        socket.emit('add_query', {
          id: 'Cache',
